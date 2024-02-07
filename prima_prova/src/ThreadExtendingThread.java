@@ -1,10 +1,10 @@
-public class ThreadManager extends Thread{
+public class ThreadExtendingThread extends Thread{
 
     /**
      * costruttore passando il nome del Thread
      * @param nome
      */
-    public ThreadManager(String nome){
+    public ThreadExtendingThread(String nome){
         super(nome);
     }
 
