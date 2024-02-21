@@ -15,7 +15,6 @@ public class ThreadExtendingThread extends Thread{
     public void run(){
         System.out.println("Partenza del Thread: " + getName());
 
-
         System.out.println("Fine del Thread: " + getName());
     }
 }

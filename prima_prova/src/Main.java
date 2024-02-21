@@ -16,9 +16,9 @@ public class Main {
         th2.start();
         th3.start();
 
-
+/* 
         //Thread with ThreadExtendingThread
-        /*
+        
         ThreadExtendingThread th1 = new ThreadExtendingThread("TH1");
         ThreadExtendingThread th2 = new ThreadExtendingThread("TH2");
         ThreadExtendingThread th3 = new ThreadExtendingThread("TH3");
