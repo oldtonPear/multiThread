@@ -1,14 +1,14 @@
 public class ThreadRunnable implements Runnable{
 
     private int index;
+    Vettore v;
 
-    
     /**
-     * costruttore passando il nome del Thread
-     * @param nome
+     * @param threadNumber numero del Thread
      */
-    public ThreadRunnable(int threadNumber){
+    public ThreadRunnable(int threadNumber, Vettore v){
         index = threadNumber;
+        this.v = v;
     }
 
     /**
@@ -16,7 +16,10 @@ public class ThreadRunnable implements Runnable{
      */
     @Override
     public void run() {
-        Main.getV3()[index] = Main.getV1()[index] + Main.getV2()[index];
+        if(index == -1){
+            v.printVettore();
+            return;
+        }
+        v.sommaComponente(index);
     }
-    
 }
