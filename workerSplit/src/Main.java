@@ -9,7 +9,7 @@ public class Main {
         }
 
         //how many times do you wanna divide the array between threads
-        int divisionFactor = 3;
+        int divisionFactor = 5;
 
         //gap between min and max
         int inverseDevisionFactor = arrLength/divisionFactor;
@@ -49,6 +49,7 @@ public class Main {
         min and max updates together using inverseDivisionFactor
         */
         for (int i = 0; i < divisionFactor; i++) {
+            System.out.println(min + " " + max);
             w[i] = new Worker(v, min, max); 
             th[i] = new Thread(w[i]);
             th[i].start();

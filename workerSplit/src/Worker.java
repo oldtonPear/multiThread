@@ -21,11 +21,6 @@ public class Worker implements Runnable{
             return;
         } 
 
-        //We've got a gap == 2 case
-        if(maxIndex-minIndex == 1){
-            result += v[maxIndex];
-        }
-
         //standard situation
         for (int i = minIndex; i < maxIndex; i++) {
             result += v[i];
