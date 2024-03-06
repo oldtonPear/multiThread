@@ -33,6 +33,8 @@ public class Main {
 
         int min = 0, max = inverseDevisionFactor;
 
+        long startTime = System.currentTimeMillis();
+
         /*
         WE'VE GOT A GAP
         example: arrLength = 17, divisionFactor = 3
@@ -76,6 +78,8 @@ public class Main {
                 e.printStackTrace();
             }
         }
-        System.out.println(finalResult);
+        long finishTime = System.currentTimeMillis();
+        double time = finishTime-startTime;
+        System.out.println("Obtained " + finalResult + " with a total time of: " + time + " ms");
     }
 }

@@ -28,6 +28,8 @@ public class Main {
         Worker w = new Worker(v, min, max, inverseDevisionFactor);
         Thread th = new Thread(w);
 
+        long startTime = System.currentTimeMillis();
+
         th.start();
 
         double finalResult = 0;
@@ -38,6 +40,8 @@ public class Main {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        System.out.println(finalResult);
+        long finalTime = System.currentTimeMillis();
+        double time = finalTime-startTime;
+        System.out.println("Obtained " + finalResult + " with a total time of: " + time + " ms");
     }
 }
