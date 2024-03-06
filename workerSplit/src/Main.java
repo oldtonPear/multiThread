@@ -5,7 +5,7 @@ public class Main {
         Scanner scn = new Scanner(System.in);
 
         System.out.print("Insert the array length:\n-> ");
-        
+
         int arrLength = scn.nextInt();
 
         double[] v = new double[arrLength];
@@ -34,7 +34,7 @@ public class Main {
         int min = 0, max = inverseDevisionFactor;
 
         /*
-        WE GOT A GAP
+        WE'VE GOT A GAP
         example: arrLength = 17, divisionFactor = 3
         I am able to split the array up to index 15 (17/3)
         I have to create a Thread with index 15-16
