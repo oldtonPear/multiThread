@@ -37,7 +37,7 @@ public class Main {
         WE'VE GOT A GAP
         example: arrLength = 17, divisionFactor = 3
         I am able to split the array up to index 15 (17/3)
-        I have to create a Thread with index 15-16
+        I have to create a Thread with index 15 - 16
         so I make a Thread using arrLength-gap(15) and arrLength-1(16)
         I'm operating the final section of the array before the other parts but it isn't a problem
         */
