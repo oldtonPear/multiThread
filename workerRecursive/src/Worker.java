@@ -22,13 +22,26 @@ public class Worker implements Runnable{
 
     @Override
     public void run() {
-        //We've got a gap
-        if(maxIndex-minIndex < inverseDivisionFactor){
-            result = v[maxIndex];
+        if(maxIndex-minIndex > inverseDivisionFactor){
+            Worker w0 = new Worker(v, minIndex, (minIndex+maxIndex)/2, inverseDivisionFactor);
+            Worker w1 = new Worker(v, (minIndex+maxIndex)/2, maxIndex, inverseDivisionFactor);
+            Thread th0 = new Thread(w0);
+            Thread th1 = new Thread(w1);
+
+            th0.start();
+            th1.start();
+            
+            try {
+                th0.join();
+                th1.join();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            result = w0.getResult() + w1.getResult();
         }
 
         //standard situation
-        for (int i = minIndex; i < maxIndex; i++) {
+        else for (int i = minIndex; i < maxIndex; i++) {
             result += v[i];
         }
     }
