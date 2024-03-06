@@ -1,15 +1,24 @@
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
+        Scanner scn = new Scanner(System.in);
+
+        System.out.print("Insert the array length:\n-> ");
         
-        int arrLength = 16;
+        int arrLength = scn.nextInt();
+
         double[] v = new double[arrLength];
 
         for (int i = 0; i < arrLength; i++) {
             v[i] = i;
         }
 
+        System.out.print("Insert how many divisions do you wanna make:\n-> ");
         //how many times do you wanna divide the array between threads
-        int divisionFactor = 5;
+        int divisionFactor = scn.nextInt();
+
+        scn.close();
 
         //gap between min and max
         int inverseDevisionFactor = arrLength/divisionFactor;
@@ -49,7 +58,6 @@ public class Main {
         min and max updates together using inverseDivisionFactor
         */
         for (int i = 0; i < divisionFactor; i++) {
-            System.out.println(min + " " + max);
             w[i] = new Worker(v, min, max, inverseDevisionFactor); 
             th[i] = new Thread(w[i]);
             th[i].start();
