@@ -13,7 +13,7 @@ public class Main {
         for (int i = 0; i < arrLength; i++) {
             v[i] = i;
         }
-
+        
         System.out.print("Insert how many divisions do you wanna make:\n-> ");
         //how many times do you wanna divide the array between threads
         int divisionFactor = scn.nextInt();
