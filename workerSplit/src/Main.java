@@ -1,7 +1,7 @@
 public class Main {
     public static void main(String[] args) {
         
-        int arrLength = 17;
+        int arrLength = 16;
         double[] v = new double[arrLength];
 
         for (int i = 0; i < arrLength; i++) {
@@ -35,7 +35,7 @@ public class Main {
         if(gap != 0){
             w = new Worker[divisionFactor+1];
             th = new Thread[divisionFactor+1];
-            w[w.length-1] = new Worker(v, arrLength-gap, arrLength-1); 
+            w[w.length-1] = new Worker(v, arrLength-gap, arrLength-1, inverseDevisionFactor); 
             th[th.length-1] = new Thread(w[w.length-1]);
             th[th.length-1].start();
         }
@@ -50,7 +50,7 @@ public class Main {
         */
         for (int i = 0; i < divisionFactor; i++) {
             System.out.println(min + " " + max);
-            w[i] = new Worker(v, min, max); 
+            w[i] = new Worker(v, min, max, inverseDevisionFactor); 
             th[i] = new Thread(w[i]);
             th[i].start();
             min += inverseDevisionFactor;
