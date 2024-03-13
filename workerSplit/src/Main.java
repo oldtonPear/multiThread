@@ -21,17 +21,17 @@ public class Main {
         scn.close();
 
         //gap between min and max
-        int inverseDevisionFactor = arrLength/divisionFactor;
+        int inverseDivisionFactor = arrLength/divisionFactor;
 
         //substractions between the arrLength and the max index on the array i can operate with
-        int gap = arrLength-inverseDevisionFactor * divisionFactor;
+        int gap = arrLength-inverseDivisionFactor * divisionFactor;
 
         Worker[] w;
         Thread[] th;
 
         double finalResult = 0;
 
-        int min = 0, max = inverseDevisionFactor;
+        int min = 0, max = inverseDivisionFactor;
 
         long startTime = System.currentTimeMillis();
 
@@ -46,7 +46,7 @@ public class Main {
         if(gap != 0){
             w = new Worker[divisionFactor+1];
             th = new Thread[divisionFactor+1];
-            w[w.length-1] = new Worker(v, arrLength-gap, arrLength-1, inverseDevisionFactor); 
+            w[w.length-1] = new Worker(v, arrLength-gap, arrLength-1, inverseDivisionFactor); 
             th[th.length-1] = new Thread(w[w.length-1]);
             th[th.length-1].start();
         }
@@ -60,11 +60,11 @@ public class Main {
         min and max updates together using inverseDivisionFactor
         */
         for (int i = 0; i < divisionFactor; i++) {
-            w[i] = new Worker(v, min, max, inverseDevisionFactor); 
+            w[i] = new Worker(v, min, max, inverseDivisionFactor); 
             th[i] = new Thread(w[i]);
             th[i].start();
-            min += inverseDevisionFactor;
-            max += inverseDevisionFactor;
+            min += inverseDivisionFactor;
+            max += inverseDivisionFactor;
         }
 
         /*
