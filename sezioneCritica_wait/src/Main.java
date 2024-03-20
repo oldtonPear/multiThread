@@ -1,31 +1,25 @@
 public class Main{
     public static void main(String[] args) {
-        int threadNumber = 4;
+        Counter counter = new Counter(0);
 
-        Produttore p = new Produttore(0, 10000000);
-        Thread prodThread = new Thread(p);
-        prodThread.start();
+        int threadNumber = 2000;
 
-        Consumatore[] t = new Consumatore[threadNumber];
+        ThreadRunnable[] t = new ThreadRunnable[threadNumber];
         Thread[] th = new Thread[threadNumber];
 
         for (int i = 0; i < threadNumber; i++) {
-            t[i] = new Consumatore("th" + i, p);
+            t[i] = new ThreadRunnable("th" + i, counter, i);
             th[i] = new Thread(t[i]);
-        }
-        for (int i = 0; i < threadNumber; i++) {
             th[i].start();    
         }
         
-        int sum = 0;
         for (int i = 0; i < threadNumber; i++) {
             try {
                 th[i].join();
-                sum += t[i].getItemConsumati();
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
         }
-        System.out.println(sum);
+        System.out.println("Counter: " + counter.getCounter());
     }
 }
